@@ -1,3 +1,4 @@
+" @autor. josuerom >> mv .vimrc ~/.vimrc
 syntax enable
 set background=dark
 set smartindent
