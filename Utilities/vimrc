@@ -1,0 +1,29 @@
+syntax enable
+set background=dark
+set smartindent
+set autoindent
+set tabstop=3
+set shiftwidth=3
+set expandtab
+set number
+set mouse=a
+set laststatus=2
+colorscheme desert
+
+nmap <f5> :w<CR> <c-l> clear<CR> make <CR>
+imap <f5> <Esc> :w<CR> <c-l> clear<CR> make <CR>
+nmap <f6> :w<CR> <c-l> clear<CR> make && ./sol < in1<CR>
+imap <f6> <Esc> :w<CR> <c-l> clear<CR> make && ./sol < in1<CR>
+tnoremap <f7> ./sol < in1<CR>
+
+nmap <c-l> <c-w>l
+tnoremap <c-h> <c-w>h
+
+nmap <c-s> :w<CR>
+imap <c-s> <Esc> :w<CR>
+nmap <c-q> :q!<CR>
+imap <c-q> <Esc> :q!<CR>
+
+let mapleader = " "
+nmap <Leader>qq :qa!<CR>
+nmap <Leader>e :explorer<CR>
