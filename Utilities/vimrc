@@ -9,7 +9,7 @@ set expandtab
 set number
 set mouse=a
 set laststatus=2
-colorscheme desert
+"colorscheme desert
 
 nmap <f5> :w<CR> <c-l> clear<CR> make <CR>
 imap <f5> <Esc> :w<CR> <c-l> clear<CR> make <CR>
@@ -25,6 +25,6 @@ imap <c-s> <Esc> :w<CR>
 nmap <c-q> :q!<CR>
 imap <c-q> <Esc> :q!<CR>
 
+nmap QQ :x!<CR>
 let mapleader = " "
-nmap <Leader>qq :qa!<CR>
-nmap <Leader>e :explorer<CR>
+nmap <Leader>e :Explore<CR>
