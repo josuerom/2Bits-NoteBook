@@ -1,6 +1,7 @@
-" @autor. josuerom >> mv .vimrc ~/.vimrc
+" @author. josuerom
 syntax enable
 set background=dark
+set clipboard=unnamedplus
 set smartindent
 set autoindent
 set tabstop=3
@@ -9,16 +10,14 @@ set expandtab
 set number
 set mouse=a
 set laststatus=2
-"colorscheme desert
 
-nmap <f5> :w<CR> <c-l> clear<CR> make <CR>
-imap <f5> <Esc> :w<CR> <c-l> clear<CR> make <CR>
-nmap <f6> :w<CR> <c-l> clear<CR> make && ./sol < in1<CR>
-imap <f6> <Esc> :w<CR> <c-l> clear<CR> make && ./sol < in1<CR>
-tnoremap <f7> ./sol < in1<CR>
-
-nmap <c-l> <c-w>l
-tnoremap <c-h> <c-w>h
+nmap <f5> :w<CR> :!clear && g++ -std=c++17 -Wall -DLOCAL -Wno-unused-result -Wno-sign-conversion % -o sol<CR>
+imap <f5> <Esc> :w<CR> :!clear && g++ -std=c++17 -Wall -DLOCAL -Wno-unused-result -Wno-sign-conversion % -o sol<CR>
+nmap <f6> :w<CR> :!clear && ./sol < in1<CR>
+imap <f6> <Esc> :w<CR> :!clear && ./sol < in1<CR>
+tmap <f7> ./sol<CR>
+nmap <f8> :w<CR> :e in1<CR>
+imap <f8> <Esc> :w<CR> :e in1<CR>
 
 nmap <c-s> :w<CR>
 imap <c-s> <Esc> :w<CR>
@@ -26,5 +25,10 @@ nmap <c-q> :q!<CR>
 imap <c-q> <Esc> :q!<CR>
 
 nmap QQ :x!<CR>
+nmap <c-a> :%yank<CR>
+
 let mapleader = " "
 nmap <Leader>e :Explore<CR>
+nmap <Leader>l :tabnext<CR>
+nmap <Leader>dl :tabclose<CR>
+nmap <Leader>nf :tabnew sol.cpp
