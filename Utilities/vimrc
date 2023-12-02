@@ -15,9 +15,9 @@ nmap <f5> :w<CR> :!clear && g++ -std=c++17 -Wall -DLOCAL -Wno-unused-result -Wno
 imap <f5> <Esc> :w<CR> :!clear && g++ -std=c++17 -Wall -DLOCAL -Wno-unused-result -Wno-sign-conversion % -o ~/workspace/bin/sol<CR>
 nmap <f6> :w<CR> :!clear && ~/workspace/bin/./sol < in1
 imap <f6> <Esc> :w<CR> :!clear && ~/workspace/bin/./sol < in1
-tmap <f7> ~/workspace/bin/./sol<CR>
-nmap <f8> :w<CR> :e in1
-imap <f8> <Esc> :w<CR> :e in1
+nmap <f7> :w<CR> :tabnew in1
+imap <f7> <Esc> :w<CR> :tabnew in1
+tmap <f9> ~/workspace/bin/./sol<CR>
 
 nmap <c-s> :w<CR>
 imap <c-s> <Esc> :w<CR>
@@ -28,7 +28,9 @@ nmap QQ :x!<CR>
 nmap <c-a> :%yank<CR>
 
 let mapleader = " "
+nmap <Leader>rl :source ~/.vimrc<CR>
 nmap <Leader>e :Explore<CR>
-nmap <Leader>nn :tabnext<CR>
-nmap <Leader>dd :tabclose<CR>
+nmap <Leader>l :tabnext<CR>
+nmap <Leader>dl :tabclose<CR>
 nmap <Leader>nf :tabnew .cpp
+nmap <Leader>t :terminal<CR>
