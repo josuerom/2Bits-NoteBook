@@ -18,8 +18,8 @@ function! RunCpp()
    imap <f5> <Esc> :w<CR> :!clear && g++ -std=c++17 -Wall -DLOCAL -Wno-unused-result -Wno-sign-conversion % -o ~/workspace/bin/sol<CR>
    nmap <C-F6> :w<CR> :!clear && ~/workspace/bin/sol<CR>
    imap <C-F6> <Esc> :w<CR> :!clear && ~/workspace/bin/sol<CR>
-   nmap <f6> :w<CR> :!clear && ~/workspace/bin/sol < in1
-   imap <f6> <Esc> :w<CR> :!clear && ~/workspace/bin/sol < in1
+   nmap <f6> :w<CR> :!clear && ~/workspace/bin/sol <in1
+   imap <f6> <Esc> :w<CR> :!clear && ~/workspace/bin/sol <in1
    nmap <f7> :w<CR> :tabnew in1
    imap <f7> <Esc> :w<CR> :tabnew in1
    tmap <f9> ~/workspace/bin/sol<CR>
@@ -28,8 +28,8 @@ endfunction
 function! RunJava()
    nmap <C-F6> :w<CR> :!clear && java %<CR>
    imap <C-F6> <Esc> :w<CR> :!clear && java %<CR>
-   nmap <f6> :w<CR> :!clear && java % < in1
-   imap <f6> <Esc> :w<CR> :!clear && java % < in1
+   nmap <f6> :w<CR> :!clear && java % <in1
+   imap <f6> <Esc> :w<CR> :!clear && java % <in1
    nmap <f7> :w<CR> :tabnew in1
    imap <f7> <Esc> :w<CR> :tabnew in1
    tmap <f9> java %<CR>
@@ -48,6 +48,6 @@ nmap <Leader>e :Explore<CR>
 nmap <Leader>l :tabnext<CR>
 nmap <Leader>dl :tabclose<CR>
 nmap <Leader>ñ :bnext<CR>
-nmap <Leader>dñ :bdelete<CR>
-nmap <Leader>nf :tabnew .cpp
+nmap <Leader>dl :bdelete<CR>
+nmap <Leader>nf :tabnew 
 nmap <Leader>t :terminal<CR>
