@@ -10,12 +10,13 @@ set expandtab
 set number
 set mouse=a
 set laststatus=2
+
 autocmd FileType cpp :call RunCpp()
 autocmd FileType java :call RunJava()
 
 function! RunCpp()
-   nmap <f5> :w<CR> :!clear && g++ -std=c++17 -Wall -DLOCAL -Wno-unused-result -Wno-sign-conversion % -o ~/workspace/bin/sol<CR>
-   imap <f5> <Esc> :w<CR> :!clear && g++ -std=c++17 -Wall -DLOCAL -Wno-unused-result -Wno-sign-conversion % -o ~/workspace/bin/sol<CR>
+   nmap <f5> :w<CR> :!clear && g++ -std=c++17 -DLOCAL -Wno-sign-conversion % -o ~/workspace/bin/sol<CR>
+   imap <f5> <Esc> :w<CR> :!clear && g++ -std=c++17 -DLOCAL -Wno-sign-conversion % -o ~/workspace/bin/sol<CR>
    nmap <C-F6> :w<CR> :!clear && ~/workspace/bin/sol<CR>
    imap <C-F6> <Esc> :w<CR> :!clear && ~/workspace/bin/sol<CR>
    nmap <f6> :w<CR> :!clear && ~/workspace/bin/sol <in1
@@ -35,11 +36,13 @@ function! RunJava()
    tmap <f9> java %<CR>
 endfunction
 
-nmap <c-a> :%y+<CR>
 nmap <c-s> :w<CR>
 imap <c-s> <Esc> :w<CR>
 nmap <c-q> :wq!<CR>
 imap <c-q> <Esc> :wq!<CR>
+"install xclip 
+nmap <C-S-A> ggVG:w !xclip -i -selection clipboard<CR> :echo 'File all copied!'<CR>
+imap <C-S-A> <Esc>:w<CR> ggVG:w !xclip -i -selection clipboard<CR> :echo 'File all copied!'<CR>
 
 let mapleader = " "
 nmap <Leader>r :source ~/.vimrc<CR>
@@ -48,6 +51,6 @@ nmap <Leader>e :Explore<CR>
 nmap <Leader>l :tabnext<CR>
 nmap <Leader>dl :tabclose<CR>
 nmap <Leader>ñ :bnext<CR>
-nmap <Leader>dl :bdelete<CR>
-nmap <Leader>nf :tabnew 
+nmap <Leader>dñ :bdelete<CR>
+nmap <Leader>np :tabnew 
 nmap <Leader>t :terminal<CR>
