@@ -17,7 +17,7 @@ def obtenerPDF(directorio_pdf, round):
 
 
 def crear_dirs(round):
-    ruta_base_rpc = r"/home/josuerom/workspace/Contests/RPC/"
+    ruta_base_rpc = r"~/workspace/contest/RPC/"
 
     ruta_base = os.path.join(ruta_base_rpc, "2024")
     if not os.path.exists(ruta_base):
@@ -25,7 +25,7 @@ def crear_dirs(round):
 
     nombre_dir = f"Rnd{round}"
     ruta_dir = os.path.join(ruta_base, nombre_dir)
-    dir_pdf = r"/home/josuerom/Descargas"
+    dir_pdf = r"~/Descargas"
 
     if os.path.exists(ruta_dir):
         print(f"El directorio {ruta_dir} ya existe 😞.")
@@ -42,17 +42,17 @@ def crear_dirs(round):
         print(f"Se han creado los archivos.")
     else:
         print(
-            f"\nNo se encontró el PDF en la ruta ~/Descargas o ~/Downloads.")
+            f"\nNo se encontró el PDF en ~/Descargas o ~/Downloads.")
         option = int(input("Presione 1 para continuar o 2 para salir -> "))
         if option == 2:
             return
 
     ruta_archivo_debug = os.path.join(ruta_dir, "debug.h")
     shutil.copyfile(
-        r"/home/josuerom/workspace/templates/debug.h", ruta_archivo_debug)
-    template_2bits = r"/home/josuerom/workspace/template_2bits.cpp"
+        r"~/workspace/contest/TEMPLATES/debug.h", ruta_archivo_debug)
+    template_2bits = r"~/workspace/contest/TEMPLATES/tem_2bits.cpp"
 
-    lista_id = ["A", "B", "C", "D"]
+    lista_id = ["A", "B", "C", "D", "E"]
 
     for problemID in lista_id:
         ruta_rpc = os.path.join(ruta_dir, problemID)
@@ -63,13 +63,13 @@ def crear_dirs(round):
         with open(archivo_base, 'x'):
             pass
 
-    print("\nSe está iniciando VSCode 😁😁", end='')
+    print("\nSe está iniciando VSCode 😁😁", end='\n')
 
-    # comando = f"code {ruta_dir}"
-    comando = f"code-insiders {ruta_dir}"
+    comando = f"code {ruta_dir}"
+    # comando = f"code-insiders {ruta_dir}"
     subprocess.run(comando, shell=True)
 
 
 if __name__ == '__main__':
-    s = input("Round number -> ")
+    s = input("Número del round -> ")
     crear_dirs(s)
