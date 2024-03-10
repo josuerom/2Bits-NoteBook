@@ -1,16 +1,15 @@
 #include <bits/stdc++.h>
-using namespace std;
 
-#define pb push_back
-#define mp make_pair
-#define ss second
-#define ff first
+#define pf  push_front
+#define pb  push_back
+#define ss  second
+#define ff  first
 
 typedef long long ll;
 typedef pair<int,int> pii;
-typedef unsigned long long ull;
+using namespace std;
 
-const int N = 1e6 + 20;
+const int N = 20 + 1e1;
 int a[N], n;
 
 int main () {
@@ -21,6 +20,6 @@ int main () {
 #else
    #define endl '\n'
 #endif
-   // Solution
+   //solution
    return 0; 
 }

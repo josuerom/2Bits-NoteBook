@@ -1,7 +1,7 @@
-"  @autor: josuerom
+" @autor: josuerom
 syntax enable
 set background=dark
-"set clipboard=unnamedplus
+set clipboard=unnamedplus
 set smartindent
 set autoindent
 set tabstop=3
