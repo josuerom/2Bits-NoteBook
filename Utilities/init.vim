@@ -202,8 +202,8 @@ function! RunJava()
     nmap <silent><F5> :w<CR> :cd %:h<CR> :call CompileJava()<CR>
     imap <F6> <Esc> :w<CR> :!java -cp ~/Workspace/bin %:r < in1
     nmap <F6> :w<CR> :!java -cp ~/Workspace/bin %:r < in1
-    imap <C-r> <Esc> :w<CR> :!java %<CR>
-    nmap <C-r> :w<CR> :!java %<CR>
+    imap <C-r> <Esc> :w<CR> :vertical term java %<CR>
+    nmap <C-r> :w<CR> :vertical term java %<CR>
     imap <F7> <Esc> :w<CR> :terminal java %<CR>i
     nmap <F7> :w<CR> :terminal java %<CR>i
 endfunction
@@ -213,8 +213,8 @@ function! RunCpp()
     nmap <silent><F5> :w<CR> :cd %:h<CR> :call CompileCpp()<CR>
     imap <F6> <Esc> :w<CR> :!~/Workspace/bin/sol.out % < in1
     nmap <F6> :w<CR> :!~/Workspace/bin/sol.out % < in1
-    imap <C-r> <Esc> :w<CR> :!~/Workspace/bin/sol.out<CR>
-    nmap <C-r> :w<CR> :!~/Workspace/bin/sol.out<CR>
+    imap <C-r> <Esc> :w<CR> :vertical term ~/Workspace/bin/sol.out<CR>
+    nmap <C-r> :w<CR> :vertical term ~/Workspace/bin/sol.out<CR>
     imap <F7> <Esc> :w<CR> :terminal ~/Workspace/bin/sol.out<CR>i
     nmap <F7> :w<CR> :terminal ~/Workspace/bin/sol.out<CR>i
 endfunction
@@ -222,8 +222,8 @@ endfunction
 function! RunPython()
     imap <F6> <Esc> :w<CR> :!python3 -O -q % < in1
     nmap <F6> :w<CR> :!python3 -O -q % < in1
-    imap <C-r> <Esc> :w<CR> :!python3 -O -q %<CR>
-    nmap <C-r> :w<CR> :!python3 -O -q %<CR>
+    imap <C-r> <Esc> :w<CR> :vertical term python3 -O -q %<CR>
+    nmap <C-r> :w<CR> :vertical term python3 -O -q %<CR>
     imap <F7> <Esc> :w<CR> :terminal python3 -O -q %<CR>i
     nmap <F7> :w<CR> :terminal python3 -O -q %<CR>i
 endfunction
