@@ -1,4 +1,4 @@
-"*-------------- Configuración general 08/Abril/2024 16:38 COL --------------*
+" *--------------------- Configuración general 05/Abril/2024 16:38 COL ---------------------*
 
 "                        ██╗███╗░░██╗██╗████████╗░░░██╗░░░██╗██╗███╗░░░███╗
 "                        ██║████╗░██║██║╚══██╔══╝░░░██║░░░██║██║████╗░████║
@@ -7,13 +7,10 @@
 "                        ██║██║░╚███║██║░░░██║░░░██╗░░╚██╔╝░░██║██║░╚═╝░██║
 "                        ╚═╝╚═╝░░╚══╝╚═╝░░░╚═╝░░░╚═╝░░░╚═╝░░░╚═╝╚═╝░░░░░╚═╝
 "                                      Creado por >> josuerom
-"                             Twitter >> https://twitter.com/josueromr
 
-" ---- LO QUE NECESITA INSTALAR PARA EL CORRECTO FUNCIONAMIENTO ----
-" INSTALL: python3 g++ java nodejs npm xclip nerd-font
-" EXECUTE IN SHELL: sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
-"                   https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
-" EXECUTE IN NVIM: :PlugInstall
+" · PROGRAMS NEEDED. python3 g++ java nodejs npm xclip nerd-font
+" · INSTALL VIM-PLUG. sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+" · INSIDE NVIM EXECUTE. :PlugInstall
 
 syntax enable
 set number
@@ -46,6 +43,7 @@ autocmd BufWritePre * :%s/\s\+$//e
 autocmd FileType java :call RunJava()
 autocmd FileType cpp :call RunCpp()
 autocmd FileType python :call RunPython()
+"autocmd FileType javascript :call RunNodeJS()
 
 "██████╗ ██╗     ██╗   ██╗ ██████╗ ██╗███╗   ██╗███████╗  ██╗   ██╗██╗███╗   ███╗
 "██╔══██╗██║     ██║   ██║██╔════╝ ██║████╗  ██║██╔════╝  ██║   ██║██║████╗ ████║
@@ -73,7 +71,6 @@ call plug#begin('~/.config/nvim/plugged')
 
 call plug#end()
 
-" ajuste del tema
 let g:gruvbox_contrast_dark = 'hard'
 colorscheme gruvbox
 "colorscheme onedark
@@ -86,7 +83,6 @@ colorscheme gruvbox
 "██║     ███████╗╚██████╔╝╚██████╔╝      ╚██████╗╚██████╔╝██║ ╚████║██║     ██║╚██████╔╝██╗╚████╔╝ ██║██║ ╚═╝ ██║
 "╚═╝     ╚══════╝ ╚═════╝  ╚═════╝        ╚═════╝ ╚═════╝ ╚═╝  ╚═══╝╚═╝     ╚═╝ ╚═════╝ ╚═╝ ╚═══╝  ╚═╝╚═╝     ╚═╝
 
-" configuración de la barra de estado inferior
 let g:lightline = {
     \ 'active': {
     \   'left': [['mode', 'paste'], [], ['relativepath', 'modified']],
@@ -120,7 +116,6 @@ imap <C-l> <Plug>(coc-snippets-expand)
 imap <C-j> <Plug>(coc-snippets-expand-jump)
 xmap <Leader>cs <Plug>(coc-convert-snippet)
 
-" cerrado automatico de la barra lateral o tree
 let NERDTreeWinPos='right'
 let NERDTreeShowHidden=1
 let NERDTreeQuitOnOpen=1
@@ -129,42 +124,8 @@ let NERDTreeMinimalUI=1
 let NERDTreeDirArrows=1
 let NERDTreeShowLineNumbers=1
 
-" navegación rápida tmux
+" tmux navegación rápida
 let g:tmux_navigator_no_mappings=1
-
-"*---------------------- FUNCIÓN PARA INTEGRAR LA SHELL BASH O ZSH -------------------------*
-function! OpenTerminal()
-  execute "normal \<C-l>"
-  execute "normal \<C-l>"
-  execute "normal \<C-l>"
-  execute "normal \<C-l>"
-
-  let bufNum = bufnr("%")
-  let bufType = getbufvar(bufNum, "&buftype", "not found")
-
-  if bufType == "terminal"
-    " cerrar terminal existente
-    execute "q"
-  else
-    " se abrirá la shell zsh, pero si usted utilizas otra, debes poner el nombre
-    " de la shell en la línea 194, ya sea: 'zsh, bash, fish', quedando la así:
-    " execute 'sp term://zsh'
-    execute "sp term://bash"
-    " apagar números
-    execute "set nonu"
-    execute "set nornu"
-
-    " alternar insertar en entrar o salir
-    silent au BufLeave <buffer> stopinsert!
-    silent au BufWinEnter,WinEnter <buffer> startinsert!
-
-    " establezco atajos dentro de la terminal
-    execute "tnoremap <buffer> <Esc> <C-\\><C-n><C-w><C-h>"
-    execute "tnoremap <buffer> <C-t> <C-\\><C-n>:q<CR>"
-    execute "tnoremap <buffer> <C-7> <C-\\><C-\\><C-n>"
-    startinsert!
-  endif
-endfunction
 
 "░█████╗░░█████╗░███╗░░░███╗██████╗░██╗██╗░░░░░███████╗██████╗░░░░██╗░░░██╗██╗███╗░░░███╗
 "██╔══██╗██╔══██╗████╗░████║██╔══██╗██║██║░░░░░██╔════╝██╔══██╗░░░██║░░░██║██║████╗░████║
@@ -224,8 +185,15 @@ function! RunPython()
     nmap <F6> :w<CR> :!python3 -O -q % < in1
     imap <C-r> <Esc> :w<CR> :vertical term python3 -O -q %<CR>i
     nmap <C-r> :w<CR> :vertical term python3 -O -q %<CR>i
-    imap <F7> <Esc> :w<CR> :terminal<CR>python3 -O -q i
-    nmap <F7> :w<CR> :terminal<CR>python3 -O -q i
+    imap <F7> <Esc> :w<CR> :call KeepRunning()<CR>
+    nmap <F7> :w<CR> :call KeepRunning()<CR>
+endfunction
+
+function! OpenTerminal()
+    let l:current_file = shellescape(expand('%:p:h'))
+    " cambie zsh por su shell para evitar errores
+    execute 'vert term zsh -c "cd ' . l:current_file . ' && zsh"'
+    wincmd l
 endfunction
 
 "███████╗██╗  ██╗ ██████╗ ██████╗ ████████╗ ██████╗██╗   ██╗████████╗███████╗  ██╗   ██╗██╗███╗   ███╗
@@ -253,10 +221,9 @@ nnoremap < 5<C-w><
 
 nnoremap <Leader>, $a;<Esc>
 
-nmap <Leader>t :call OpenTerminal()<CR> <Esc> :resize 14<CR>
+nnoremap <Leader>t :call OpenTerminal()<CR>i
 nmap <Leader>¿ :e ~/.config/nvim/init.vim<CR>
 
-" editar archivos de entrada: agrege el ID y presione Enter
 imap <F8> <Esc> :w<CR> :e in
 nmap <F8> :w<CR> :e in
 
@@ -325,13 +292,13 @@ xmap s <Plug>VSurround
 xnoremap K :move '<-2<CR>gv-gv
 xnoremap J :move '>+1<CR>gv-gv
 
-" cambia la posición de una línea
+" cambia la posición de una línea de código
 nnoremap n :m .-2<CR>==
 nnoremap m :m .+1<CR>==
-
-nnoremap <silent><nowait> <F12> :<C-u>CocList snippets<CR>
-nnoremap <silent><nowait> <Leader>cup :<C-u>CocUpdate<CR>
 
 " Para camiar el carácter que contenga una cadena de texto o cambiar el carácteres que los contiene,
 " por ejemplo: si tienes un: 'Hi! World' al presionar <cs+el-simbolo-a-usar> la cadena de carácteres
 " que los agrupa magicamente se cambiaran sin necesidad de realizarlo manualmente
+
+nnoremap <silent><nowait> <F12> :<C-u>CocList snippets<CR>
+nnoremap <silent><nowait> <Leader>cup :<C-u>CocUpdate<CR>
