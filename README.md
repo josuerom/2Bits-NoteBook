@@ -3,7 +3,7 @@ Este repositorio contiene la implementación de varios algoritmos muy comunes en
 Estos codigos han sido probados en muchas ocasiones por lo cual puede tener confianza en usarlos. 
 Puedes encontrar dentro de cada implementacion (en la parte superior) la complejidad algoritmica que tiene, y un link a un problema para practicar.
 
-Si estas interesadso en aportar con algún nuevo algoritmo, puede hacerlo creando un Pull Request.
+Si estás interesado en aportar algún nuevo algoritmo, puede hacerlo creando un Pull Request.
 
 ### Referencias
 - [CP-Algorithms](https://cp-algorithms.com/index.html)
